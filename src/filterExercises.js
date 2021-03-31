@@ -80,3 +80,15 @@ export const getStudentsByLanguage = (language) =>{
 // It should accept an array of strings as a parameter named `languages`
 // It should return an array of students who know ALL of the given languages
 // Ex: getStudentsByLanguages(["Javascript", "C#"])
+export const getStudentsByLanguages = (languages) =>{
+    return students.filter(stud => {
+        let knownlang = languages.filter(land => {
+            let lang = stud.languages.find(studlang => studlang === land)
+            return lang
+        })
+        if(knownlang.length === languages.length) {
+            return true;
+        }
+
+    })
+}
