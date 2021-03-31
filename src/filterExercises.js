@@ -39,11 +39,13 @@ export const getPolyglotStudents = (languageCount) => {
 // It should not accept any parameters
 // It should return an array of instructors that don't have any students
 export const getAvailableInstructors = () => {
-    let studinst = students.map(student => student.instructorId)
-    return studinst.forEach(id => {
-        return instructors.filter(instct => instct === id)
+    return instructors.filter( instruct => {
+        let busy = students.find(student => student.instructorId === instruct.id) 
+        if (busy === undefined) {
+            return instruct;
+        }
     })
-    
+
 }
 
 
