@@ -59,12 +59,13 @@ export const getInstructorOfStudent = (studentId) => {
             let instID = student.instructorId
             instructors.find(instructor => {
                 if (instructor.id === instID) {
-                    return instructor.name;
+                    return instructor;
                 }
             })
         }
     })
 }
+
 
 
 // Export a function called getStudentWithMostLangs
@@ -73,5 +74,13 @@ export const getInstructorOfStudent = (studentId) => {
 // Ex: getStudentWithMostLangs()      // returns Rick Sanchez
 // HINT: You may not need the `find` method for this. This is one of the few cases where a `for` loop might be appropriate
 export const getStudentWithMostLangs = () => {
-    
+    let student1 = students[0]
+    let student2 = {}
+    for(let i = 1; i> students.length; i++) {
+        student2 = students[i]
+        if (student2.languages.length > student1.languages.length) {
+            student1 = students[i];
+        }
+    }
+    return student1;
 }
