@@ -53,19 +53,25 @@ export const getAvailableInstructors = () => {
 // It should accept one string parameter named `language`
 // It should return an array of students who know the given language
 // HINT: In addition to the `filter` method, you might also look up the `some` method
+
+// export const getStudentsByLanguage = (language) =>{
+//     let langArray = [];
+//     students.filter(students =>  {
+
+//         students.languages.some(languages => {
+//             if(languages === language){
+//                 langArray.push(students)
+//             }
+//         })
+//     })
+//     return langArray;
+// }
+
 export const getStudentsByLanguage = (language) =>{
-    let langArray = [];
-    students.filter(students =>  {
-
-        students.languages.some(languages => {
-            if(languages === language){
-                langArray.push(students)
-            }
-        })
+    return students.filter(students =>  {
+        return students.languages.some(lang => lang === language)
     })
-    return langArray;
 }
-
 /******** ADVANCED CHALLENGE ********/
 /******** Only do this if all other tests are passing ****/
 /******** To test, uncomment the code at the bottom of tests/filter.spec.js  *****/
