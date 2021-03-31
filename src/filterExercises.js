@@ -31,7 +31,6 @@ export const getStudentsByInstructorId = (instructorId) => {
 // It should accept one integer parameter named `languageCount`
 // It should return an array of students who know as many (or more) languages than `languageCount`
 // Ex: If the number 2 is passed to the function, only the students who know 2 or more languages should be returned
-let languageCount = 1;
 export const getPolyglotStudents = (languageCount) => {
     return students.filter(student => student.languages.length >= languageCount)
 }
@@ -40,11 +39,11 @@ export const getPolyglotStudents = (languageCount) => {
 // It should not accept any parameters
 // It should return an array of instructors that don't have any students
 export const getAvailableInstructors = () => {
-    let instructorids = instructors;
-    students.forEach(student => {
-        instructorids.pop(student.instructorId)
+    let studinst = students.map(student => student.instructorId)
+    return studinst.forEach(id => {
+        return instructors.filter(instct => instct === id)
     })
-    return instructorids;
+    
 }
 
 
